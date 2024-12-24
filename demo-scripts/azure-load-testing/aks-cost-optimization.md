@@ -10,7 +10,7 @@ Please execute the steps outlined in the [deployment instructions](../../docs/de
 
 ## Walkthrough
 
-1. We have a GitHub workflow (and a Azure DevOps pipeline too) that executes load tests on a AKS cluster using a matrix of cluster sizes. The workflow is defined in the [aks-cost-optimization.yml](../../.github/workflows/aks-cost-optimization.yml) file. The workflow can be triggered manually on-demand.
+1. We have a GitHub workflow (and an Azure DevOps pipeline too) that executes load tests on an AKS cluster using a matrix of cluster sizes. The workflow is defined in the [aks-cost-optimization.yml](../../.github/workflows/aks-cost-optimization.yml) file. The workflow can be triggered manually on-demand.
 
    ![aks cost optimization](./media/aks-cost-optimization-0.png)
 
