@@ -851,7 +851,7 @@ resource ui2stgacc_mi 'Microsoft.ManagedIdentity/userAssignedIdentities@2022-01-
   tags: resourceTags
 }
 
-resource ui2stgacc_roledefinition 'Microsoft.Authorization/roleDefinitions@2022-04-01' existing = {
+resource ui2stgacc_roledefinition_unique 'Microsoft.Authorization/roleDefinitions@2022-04-01' existing = {
   scope: subscription()
   // This is the Storage Account Contributor role, which is the minimum role permission we can give. 
   // See https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#:~:text=17d1049b-9a84-46fb-8f53-869881c3d3ab
@@ -864,7 +864,7 @@ resource roleAssignment2 'Microsoft.Authorization/roleAssignments@2022-04-01' = 
   scope: ui2stgacc
   name: guid(resourceGroup().id, ui2stgacc_mi.id, ui2stgacc_roledefinition.id)
   properties: {
-    roleDefinitionId: ui2stgacc_roledefinition.id
+    roleDefinitionId: ui2stgacc_roledefinition_unique.id
     principalId: ui2stgacc_mi.properties.principalId
     principalType: 'ServicePrincipal'
   }
